@@ -1,5 +1,4 @@
-const test = ()=>{
-    console.log(1)
-}
+import React from "../lib/react"
 
-test();
+const vDom = <div>test</div>
+console.log(vDom)
