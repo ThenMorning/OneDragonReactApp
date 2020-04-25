@@ -25,4 +25,14 @@ class ClassComponent {
     );
   }
 }
-ReactDOM.render(<ClassComponent />, document.getElementById("root"));
+
+function FunctionComponent(){
+    return (
+        <div>
+          <h1 style={{ color: "red" }}>一条龙</h1>
+          <span className="big">React</span>
+        </div>
+      );
+}
+
+ReactDOM.render(<FunctionComponent />, document.getElementById("root"));
