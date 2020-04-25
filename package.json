@@ -1,0 +1,28 @@
+{
+  "name": "OneDragonReactApp",
+  "version": "1.0.0",
+  "description": "手写React+React-dom+Redux+React-saga一条龙",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LTBLwhz/OneDragonReactApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LTBLwhz/OneDragonReactApp/issues"
+  },
+  "homepage": "https://github.com/LTBLwhz/OneDragonReactApp#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "parcel-bundler": "^1.12.4"
+  }
+}
