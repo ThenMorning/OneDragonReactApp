@@ -10,29 +10,30 @@ import ReactDOM from "../lib/react-dom";
 // console.log(vDom)
 
 class ClassComponent {
-  constructor() {
+  constructor(props) {
+    this.props = props;
     this.state = {
       count: 1,
     };
   }
   render() {
     const { count } = this.state;
+    const { name } = this.props;
     return (
       <div>
         <h1 style={{ color: "red" }}>{count}条龙</h1>
-        <span className="big">React</span>
+        <Son name={name}></Son>
       </div>
     );
   }
 }
 
-function FunctionComponent(){
-    return (
-        <div>
-          <h1 style={{ color: "red" }}>一条龙</h1>
-          <span className="big">React</span>
-        </div>
-      );
-}
 
-ReactDOM.render(<FunctionComponent />, document.getElementById("root"));
+function Son(props) {
+  const { name } = this.props;
+  return <span className="big">React{name}</span>;
+}
+ReactDOM.render(
+  <ClassComponent name={"还行吧"} />,
+  document.getElementById("root")
+);
