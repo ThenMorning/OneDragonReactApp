@@ -9,20 +9,26 @@ import ReactDOM from "../lib/react-dom";
 // );
 // console.log(vDom)
 
-class ClassComponent {
-  constructor(props) {
-    this.props = props;
-    this.state = {
-      count: 1,
-    };
+class ClassComponent extends React.Component {
+  constructor(props){
+      super(props);
+      this.state = {
+          count:1
+      }
+  }
+  onChange(e){
+      console.log(e.target.value)
+      this.setState({
+          count:e.target.value
+      })
   }
   render() {
     const { count } = this.state;
-    const { name } = this.props;
     return (
       <div>
         <h1 style={{ color: "red" }}>{count}条龙</h1>
-        <Son name={name}></Son>
+        <input onInput={this.onChange.bind(this)} style={{border:"1px solid"}}></input>
+        <Son name={count}></Son>
       </div>
     );
   }
@@ -34,6 +40,6 @@ function Son(props) {
   return <span className="big">React{name}</span>;
 }
 ReactDOM.render(
-  <ClassComponent name={"还行吧"} />,
+<ClassComponent />,
   document.getElementById("root")
 );
