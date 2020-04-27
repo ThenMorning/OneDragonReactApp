@@ -133,7 +133,7 @@ import ReactDOM from "../lib/react-dom";
 // ReactDOM.render(<App />, document.getElementById("root"));
 
 import App from "./app.js"
-import { Provider } from '../lib/react-redux';
+import { RRProvider  as Provider} from '../lib/react-redux';
 
 ReactDOM.render(
   <Provider store={{a:1}}><App/></Provider>,
