@@ -105,6 +105,7 @@ function Toolbar(props) {
   return (
     <div>
       <ThemedButton />
+      <ThemedButton2/>
     </div>
   );
 }
@@ -112,6 +113,20 @@ function Toolbar(props) {
 class ThemedButton extends React.Component {
   constructor(props) {
     ThemedButton.contextType = ThemeContext;
+    super(props);
+  }
+  render() {
+    return (
+      <button style={{ fontSize: this.context + "px" }} onClick={()=>{
+        this.setContext(this.context+1);
+      }}>{this.context}</button>
+    );
+  }
+}
+
+class ThemedButton2 extends React.Component {
+  constructor(props) {
+    ThemedButton2.contextType = ThemeContext;
     super(props);
   }
   render() {
