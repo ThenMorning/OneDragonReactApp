@@ -81,7 +81,7 @@ class App extends React.Component {
     const { count } = this.state;
     return (
       <div>
-        <ThemeContext.Provider value={count}>
+        <ThemeContext.Provider value={9}>
           <Toolbar />
         </ThemeContext.Provider>
         <h1 key="2" style={{ color: "red" }}>
@@ -116,7 +116,9 @@ class ThemedButton extends React.Component {
   }
   render() {
     return (
-      <button style={{ fontSize: this.context + "px" }}>{this.context}</button>
+      <button style={{ fontSize: this.context + "px" }} onClick={()=>{
+        this.setContext(this.context+1);
+      }}>{this.context}</button>
     );
   }
 }
