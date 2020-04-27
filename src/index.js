@@ -14,25 +14,41 @@ import ReactDOM from "../lib/react-dom";
 // ReactDOM.render(vDom, document.getElementById("root"));
 
 class ClassComponent extends React.Component {
-  constructor(props){
-      super(props);
-      this.state = {
-          count:1
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 1,
+    };
   }
-  onChange(e){
-      this.setState({
-          count:e.target.value
-      })
+  onChange(e) {
+    this.setState({
+      count: e.target.value,
+    });
   }
   render() {
     const { count } = this.state;
     return (
       <div>
-        <h1 key="2" style={{ color: "red" }}>{count}条龙</h1>
-        <input key="3" onInput={this.onChange.bind(this)} style={{border:"1px solid"}}></input>
+        <h1 key="2" style={{ color: "red" }}>
+          {count}条龙
+        </h1>
+        <button
+          onClick={() => {
+            this.setState({
+              count: this.state.count + 1,
+            });
+          }}
+        >
+          click
+        </button>
+
+        {/* <input
+          key="3"
+          onInput={this.onChange.bind(this)}
+          style={{ border: "1px solid" }}
+        ></input>
         <Son name={count}></Son>
-        <Son name={count+7}></Son>
+        <Son name={count + 7}></Son> */}
       </div>
     );
   }
@@ -40,10 +56,68 @@ class ClassComponent extends React.Component {
 
 function Son() {
   const { name } = this.props;
-  return <span  className="big">React{name}</span>;
+  return <div>React{name}</div>;
 }
 
-ReactDOM.render(
-<ClassComponent />,
-  document.getElementById("root")
-);
+// ReactDOM.render(
+// <ClassComponent />,
+//   document.getElementById("root")
+// );
+
+const ThemeContext = React.createContext("12");
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      count: 1,
+    };
+  }
+  onClick() {
+    this.setState({
+      count: 9,
+    });
+  }
+  render() {
+    const { count } = this.state;
+    return (
+      <div>
+        <ThemeContext.Provider value={count}>
+          <Toolbar />
+        </ThemeContext.Provider>
+        <h1 key="2" style={{ color: "red" }}>
+          {count}
+        </h1>
+        <button
+          onClick={() => {
+            this.setState({
+              count: this.state.count + 1,
+            });
+          }}
+        >
+          click
+        </button>
+      </div>
+    );
+  }
+}
+
+function Toolbar(props) {
+  return (
+    <div>
+      <ThemedButton />
+    </div>
+  );
+}
+
+class ThemedButton extends React.Component {
+  constructor(props) {
+    ThemedButton.contextType = ThemeContext;
+    super(props);
+  }
+  render() {
+    return (
+      <button style={{ fontSize: this.context + "px" }}>{this.context}</button>
+    );
+  }
+}
+ReactDOM.render(<App />, document.getElementById("root"));
