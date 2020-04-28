@@ -1,5 +1,6 @@
 import React from "../lib/react";
 import { connnect } from "../lib/react-redux";
+import { editA } from "./store/action";
 
 class App extends React.Component {
   constructor(props) {
@@ -23,11 +24,8 @@ class Son1 extends React.Component {
         Son1 {this.props.a}
         <button
           onClick={() => {
-            this.props.setStore({
-              store: {
-                a: this.props.a + 1,
-              },
-            });
+            this.props.setStore(editA(this.props.a+1));
+
           }}
         >
           click
@@ -44,11 +42,7 @@ class Son2 extends React.Component {
         Son2 {this.props.a}
         <button
           onClick={() => {
-            this.props.setStore({
-              store: {
-                a: this.props.a + 2,
-              },
-            });
+            this.props.setStore(editA(this.props.a+2));
           }}
         >
           click
