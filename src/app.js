@@ -1,6 +1,7 @@
 import React from "../lib/react";
 import { connnect } from "../lib/react-redux";
 import { editA } from "./store/action";
+import { bindActionCreators } from "../lib/redux";
 
 class App extends React.Component {
   constructor(props) {
@@ -24,8 +25,7 @@ class Son1 extends React.Component {
         Son1 {this.props.a}
         <button
           onClick={() => {
-            this.props.setStore(editA(this.props.a+1));
-
+            this.props.dispatch(editA(this.props.a + 1));
           }}
         >
           click
@@ -42,7 +42,8 @@ class Son2 extends React.Component {
         Son2 {this.props.a}
         <button
           onClick={() => {
-            this.props.setStore(editA(this.props.a+2));
+            // this.props.dispatch(editA(this.props.a + 2));
+            this.props.ActionEditA(this.props.a + 2)
           }}
         >
           click
@@ -56,16 +57,20 @@ const ConnectSon1 = connnect(
   (store) => {
     return store;
   },
-  (util) => {
-    return util;
+  ({ dispatch }) => {
+    return { dispatch };
   }
 )(Son1);
 const ConnectSon2 = connnect(
   (store) => {
     return store;
   },
-  (util) => {
-    return util;
+  ({ dispatch }) => {
+  //  const  ActionEditA = function(value){
+  //    const action  = editA(value);
+  //    dispatch(action);
+  //  }
+    return bindActionCreators({ActionEditA:editA},dispatch);
   }
 )(Son2);
 export default App;
