@@ -1,6 +1,6 @@
 import React from "../lib/react";
 import { connnect } from "../lib/react-redux";
-import { editA } from "./store/action";
+import { editA, asyncFetchData } from "./store/action";
 import { bindActionCreators } from "../lib/redux";
 
 class App extends React.Component {
@@ -22,10 +22,10 @@ class Son1 extends React.Component {
   render() {
     return (
       <div>
-        Son1 {this.props.a}
+        Son1 {this.props.asyncData}
         <button
           onClick={() => {
-            this.props.dispatch(editA(this.props.a + 1));
+            this.props.ActionAsyncFetchData("async data");
           }}
         >
           click
@@ -58,7 +58,7 @@ const ConnectSon1 = connnect(
     return store;
   },
   ({ dispatch }) => {
-    return { dispatch };
+    return bindActionCreators({ActionAsyncFetchData:asyncFetchData},dispatch);
   }
 )(Son1);
 const ConnectSon2 = connnect(
