@@ -134,8 +134,8 @@ import ReactDOM from "../lib/react-dom";
 
 import App from "./app.js"
 import { RRProvider  as Provider} from '../lib/react-redux';
-
+import store from "./store/index"
 ReactDOM.render(
-  <Provider store={{a:1}}><App/></Provider>,
+  <Provider store={store}><App/></Provider>,
   document.getElementById('root')
 );
