@@ -1,0 +1,39 @@
+.container{
+    text-align: center;
+}
+.title{
+    font-size: 25px;
+}
+
+.form-container{
+    padding: 0 50px;
+    text-align: left;
+}
+.form-item{
+    margin: 15px 0 ;
+}
+
+.form-item .label{
+    color:gray;
+    font-size: 15px;
+}
+.form-item .dom{
+    width: 100%;
+    border:1px solid gainsboro;
+    padding: 5px;
+}
+
+.form-item .error-dom{
+    border:2px solid red;
+}
+
+.form-item .error-tip{
+    font-size: 13px;
+    color: red;
+}
+.submit-btn{
+    width: 100%;
+    padding: 10px;
+    background-color: skyblue;
+    color: white;
+}

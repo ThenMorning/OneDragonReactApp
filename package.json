@@ -7,7 +7,8 @@
     "lib": "lib"
   },
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,11 @@
   "homepage": "https://github.com/LTBLwhz/OneDragonReactApp#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "babel-preset-stage-2": "^6.24.1"
   }
 }
